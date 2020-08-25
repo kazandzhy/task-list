@@ -1,12 +1,25 @@
-import React from 'react';
-import './App.css';
+import React, { useState } from 'react'
+import { AppHeader, 
+         ItemStatusFilter, 
+         TaskList, 
+         ItemAddForm,
+         taskListItems 
+       } from './components'
 
-function App() {
+import './App.css'
+
+const App = () => {
+
+  const [ todoItems, setTodoItems ] = useState(taskListItems)
+
   return (
     <div className="App">
-      Task List
+      <AppHeader />
+      <ItemStatusFilter />
+      <TaskList items={ todoItems } />
+      <ItemAddForm />
     </div>
   );
 }
 
-export default App;
+export default App
