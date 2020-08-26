@@ -2,7 +2,7 @@
   height: 16px;
 }
 
-.edit-icon {
+.completed-icon, .uncompleted-icon {
   height: 16px;
   margin-right: 4px;
 }
@@ -11,6 +11,10 @@
   height: 16px;
 }
 
-.edit-icon:hover, .delete-icon:hover {
+.completed-icon:hover, .uncompleted-icon:hover, .delete-icon:hover {
   height: 20px;
+}
+
+.task-completion.done {
+  text-decoration: line-through;
 }

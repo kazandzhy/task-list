@@ -3,25 +3,26 @@ import TaskListItem from '../task-list-item/TaskListItem'
 
 import "./TaskList.css"
 
-const TaskList = ({ items }) => {
-  const elements = items.map(item => {
-    const { id, ...itemProps } = item
+const TaskList = ({ tasks, onToggleDone }) => {
+  const elements = tasks.map(task => {
+    const { id, ...taskProps } = task
     return (
       <li key={id} className='task-list-li'>
         <TaskListItem
-          {...itemProps}
+          {...taskProps}
+          onToggleDone={() => onToggleDone(id)}
         />
       </li>
-    );
-  });
+    )
+  })
 
   return (
     <div className='task-list'>
       <ul className='task-list-ul'>
-        { elements }
+        { elements.length ? elements : <p>There are no tasks in this list</p>}
       </ul>
     </div>
-  );
+  )
 }
 
 export default TaskList

@@ -1,4 +1,4 @@
-.item-status-btn {
+.task-status-btn {
   outline: none;
   padding: 0 1.528em;
   min-height: 36px;
@@ -14,7 +14,7 @@
   background-color: transparent;
 }
 
-.item-status-btn:hover {
+.task-status-btn:hover, .btn-active {
   color: #fafafa;
   background-color: #1ba94c;
   box-shadow: 1px 1px 5px 0.5px #39424e;

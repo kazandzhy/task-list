@@ -1,21 +1,24 @@
 import React from 'react'
 
-import './ItemStatusFilter.css'
+import './TaskStatusFilter.css'
 
-const ItemStatusFilter = () => {
+const TaskStatusFilter = ({ onFilterChange, filter }) => {
 
   const btns = [
     { name: 'all', label: 'All' },
     { name: 'pending', label: 'Pending' },
-    { name: 'complete', label: 'Completed' }
+    { name: 'completed', label: 'Completed' }
   ]
 
   const buttons = btns.map(({ name, label }) => {
+    const isActive = filter === name
+    const btnClass = isActive ? "btn-active" : ''
     return (
       <button
         type='button'
         key={name}
-        className='item-status-btn'
+        className={`task-status-btn ${btnClass}`}
+        onClick={()=> onFilterChange(name)}
       >
         {label}
       </button>
@@ -29,4 +32,4 @@ const ItemStatusFilter = () => {
   )
 }
 
-export default ItemStatusFilter
+export default TaskStatusFilter
