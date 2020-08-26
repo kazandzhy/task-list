@@ -3,7 +3,7 @@ import { uncompletedIcon, completedIcon, deleteIcon } from '../../assets/icons'
 
 import "./TaskListItem.css"
 
-const TaskListItem = ({ label, done, onToggleDone }) => {
+const TaskListItem = ({ label, done, onToggleDone, onDeleted }) => {
   let classNames = "task-completion";
   if (done) {
     classNames += " done";
@@ -32,6 +32,7 @@ const TaskListItem = ({ label, done, onToggleDone }) => {
           alt='delete icon'
           src={ deleteIcon }
           className='delete-icon'
+          onClick={ onDeleted }
         />
       </div>
     </Fragment>

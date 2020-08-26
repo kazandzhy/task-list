@@ -27,8 +27,8 @@ const App = () => {
     const idx = todoTasks.findIndex((el) => el.id === id)
     const oldTask = todoTasks[idx]
     const newTask = { ...oldTask, ['done']: !oldTask['done'] }
-    const newArray = [...todoTasks.slice(0, idx), newTask, ...todoTasks.slice(idx + 1)]
-    setTodoTasks(newArray)
+    const newTodoTasks = [...todoTasks.slice(0, idx), newTask, ...todoTasks.slice(idx + 1)]
+    setTodoTasks(newTodoTasks)
   }
 
   const filterTasks = (tasks, filter) => {
@@ -50,12 +50,18 @@ const App = () => {
 
   const addTask = label => {
     const newItem = createTodoTask(label)
-    const newArray = [...todoTasks, newItem]
-    setTodoTasks(newArray)
+    const newTodoTasks = [...todoTasks, newItem]
+    setTodoTasks(newTodoTasks)
+  }
+
+  const deleteTask = id => {
+    const newTodoTasks = [...todoTasks]
+    const idx = newTodoTasks.findIndex((el) => el.id === id)
+    newTodoTasks.splice(idx, 1)
+    setTodoTasks(newTodoTasks)
   }
 
   const visibleTasks = filterTasks(todoTasks, filter)
-  console.log(todoTasks)
 
   return (
     <div className="App">
@@ -67,6 +73,7 @@ const App = () => {
       <TaskList 
         tasks={ visibleTasks } 
         onToggleDone={ onToggleDone }
+        onDeleted={ deleteTask }
       />
       <TaskAddForm onTaskAdded={ addTask } />
     </div>
