@@ -1,4 +1,24 @@
-ul.task-list {
+.task-list {
+  display: flex;
+  justify-content: center;
+}
+
+.task-list-ul {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
   list-style-type: none;
   padding-left: 0;
+  margin-bottom: 0px;
+}
+
+.task-list-li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  padding: 8px 20px;
+  min-width: 200px;
+  background-color: #fff;
+  box-shadow: 0 3px 10px 0 rgba(99, 118, 129, 0.3);
 }

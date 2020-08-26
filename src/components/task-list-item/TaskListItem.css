@@ -1,0 +1,16 @@
+.icons {
+  height: 16px;
+}
+
+.edit-icon {
+  height: 16px;
+  margin-right: 4px;
+}
+
+.delete-icon {
+  height: 16px;
+}
+
+.edit-icon:hover, .delete-icon:hover {
+  height: 20px;
+}

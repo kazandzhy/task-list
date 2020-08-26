@@ -1,0 +1,13 @@
+.app-header {
+  display: flex;
+  line-height: 60px;
+  color: #1ba94c;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 75px;
+  background-color: #39424e;
+}
+
+h2.app-header-title {
+  margin: 0;
+}
