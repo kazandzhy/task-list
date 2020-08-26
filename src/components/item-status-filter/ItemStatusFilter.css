@@ -1,0 +1,21 @@
+.item-status-btn {
+  outline: none;
+  padding: 0 1.528em;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #1ba94c;
+  border-radius: 5px;
+  margin: 0 2px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 600;
+  background-color: transparent;
+}
+
+.item-status-btn:hover {
+  color: #fafafa;
+  background-color: #1ba94c;
+  box-shadow: 1px 1px 5px 0.5px #39424e;
+}

@@ -4,8 +4,8 @@ import "./AppHeader.css"
 
 const AppHeader = () => {
   return (
-    <div>
-      <h3>App Header</h3>
+    <div className='app-header'>
+      <h2 className='app-header-title'>Task List</h2>
     </div>
   )
 }

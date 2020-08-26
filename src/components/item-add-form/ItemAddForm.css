@@ -1,0 +1,45 @@
+.item-add-form {
+  margin-top: 20px;
+}
+
+.add-item-button {
+  outline: none;
+  padding: 0 1.528em;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #1ba94c;
+  border-radius: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 600;
+  background-color: transparent;
+}
+
+.add-item-button:hover {
+  color: #fafafa;
+  background-color: #1ba94c;
+  box-shadow: 1px 1px 5px 0.5px #39424e;
+}
+
+.add-item-input {
+  width: 160px;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, .1), 0 0 0 transparent;
+  border: 1px solid #8b98af;
+  border-radius: 5px;
+  color: #0e141e;
+  height: 34px;
+  outline: none;
+  font-size: 14px;
+  padding: 0 12px;
+}
+
+.add-item-input:focus {
+  box-shadow: 1px 1px 5px 0.5px #8b98af;
+}
+
+.add-item-input:hover {
+  box-shadow: 1px 1px 5px 0.5px #8b98af;
+}

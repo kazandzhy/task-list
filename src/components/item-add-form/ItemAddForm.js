@@ -1,12 +1,17 @@
 import React from 'react'
 
-import "./ItemAddForm.css"
+import './ItemAddForm.css'
 
 const ItemAddForm = () => {
   return (
-    <div>
-      <p>Add Item</p>
-    </div>
+    <form className='item-add-form'>
+    <input
+      type='text'
+      placeholder='What needs to be done'
+      className='add-item-input'
+    />
+    <button className='add-item-button'>Add Item</button>
+  </form>
   )
 }
 

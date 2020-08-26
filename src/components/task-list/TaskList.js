@@ -7,7 +7,7 @@ const TaskList = ({ items }) => {
   const elements = items.map(item => {
     const { id, ...itemProps } = item
     return (
-      <li key={id}>
+      <li key={id} className='task-list-li'>
         <TaskListItem
           {...itemProps}
         />
@@ -15,7 +15,13 @@ const TaskList = ({ items }) => {
     );
   });
 
-  return <ul className='task-list'>{ elements }</ul>;
+  return (
+    <div className='task-list'>
+      <ul className='task-list-ul'>
+        { elements }
+      </ul>
+    </div>
+  );
 }
 
 export default TaskList
