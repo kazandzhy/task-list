@@ -44,10 +44,6 @@ const App = () => {
     }
   }
 
-  const onFilterChange = filter => {
-    setFilter(filter)
-  }
-
   const addTask = label => {
     const newItem = createTodoTask(label)
     const newTodoTasks = [...todoTasks, newItem]
@@ -61,6 +57,12 @@ const App = () => {
     setTodoTasks(newTodoTasks)
   }
 
+  const editTask = (label, id) => {
+    const newTodoTasks = [...todoTasks]
+    newTodoTasks[id - 1] = {...todoTasks[id - 1], label: label }
+    setTodoTasks(newTodoTasks)
+  }
+
   const visibleTasks = filterTasks(todoTasks, filter)
 
   return (
@@ -68,12 +70,13 @@ const App = () => {
       <AppHeader />
       <TaskStatusFilter
         filter={ filter }
-        onFilterChange={ onFilterChange } 
+        onFilterChange={ filter => setFilter(filter) } 
       />
       <TaskList 
         tasks={ visibleTasks } 
         onToggleDone={ onToggleDone }
         onDeleted={ deleteTask }
+        onEdit={ editTask }
       />
       <TaskAddForm onTaskAdded={ addTask } />
     </div>
