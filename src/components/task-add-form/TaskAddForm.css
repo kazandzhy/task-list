@@ -1,8 +1,8 @@
-.item-add-form {
+.task-add-form {
   margin-top: 20px;
 }
 
-.add-item-button {
+.add-task-button {
   outline: none;
   padding: 0 1.528em;
   min-height: 36px;
@@ -18,13 +18,13 @@
   background-color: transparent;
 }
 
-.add-item-button:hover {
+.add-task-button:hover {
   color: #fafafa;
   background-color: #1ba94c;
   box-shadow: 1px 1px 5px 0.5px #39424e;
 }
 
-.add-item-input {
+.add-task-input {
   width: 160px;
   box-shadow: inset 0 1px 4px rgba(0, 0, 0, .1), 0 0 0 transparent;
   border: 1px solid #8b98af;
@@ -36,10 +36,10 @@
   padding: 0 12px;
 }
 
-.add-item-input:focus {
+.add-task-input:focus {
   box-shadow: 1px 1px 5px 0.5px #8b98af;
 }
 
-.add-item-input:hover {
+.add-task-input:hover {
   box-shadow: 1px 1px 5px 0.5px #8b98af;
 }

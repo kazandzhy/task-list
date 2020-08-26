@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { AppHeader, 
-         ItemStatusFilter, 
+         TaskStatusFilter, 
          TaskList, 
-         ItemAddForm,
+         TaskAddForm,
          taskListItems 
        } from './components'
 
@@ -10,14 +10,48 @@ import './App.css'
 
 const App = () => {
 
-  const [ todoItems, setTodoItems ] = useState(taskListItems)
+  const [ todoTasks, setTodoTasks ] = useState(taskListItems)
+  const [ filter, setFilter ] = useState('all')
+
+  const onToggleDone = (id) => {
+    const idx = todoTasks.findIndex((el) => el.id === id)
+    const oldTask = todoTasks[idx]
+    const newTask = { ...oldTask, ['done']: !oldTask['done'] }
+    const newArray = [...todoTasks.slice(0, idx), newTask, ...todoTasks.slice(idx + 1)]
+    setTodoTasks(newArray)
+  }
+
+  const filterTasks = (tasks, filter) => {
+    switch (filter) {
+      case "all":
+        return tasks;
+      case "pending":
+        return tasks.filter((task) => !task.done);
+      case "completed":
+        return tasks.filter((task) => task.done);
+      default:
+        return tasks;
+    }
+  };
+
+  const onFilterChange = (filter) => {
+    setFilter(filter)
+  }
+
+  const visibleTasks = filterTasks(todoTasks, filter)
 
   return (
     <div className="App">
       <AppHeader />
-      <ItemStatusFilter />
-      <TaskList items={ todoItems } />
-      <ItemAddForm />
+      <TaskStatusFilter
+        filter={ filter }
+        onFilterChange={ onFilterChange } 
+      />
+      <TaskList 
+        tasks={ visibleTasks } 
+        onToggleDone={onToggleDone}
+      />
+      <TaskAddForm />
     </div>
   );
 }
