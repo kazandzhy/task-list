@@ -12,8 +12,18 @@ const App = () => {
 
   const [ todoTasks, setTodoTasks ] = useState(taskListItems)
   const [ filter, setFilter ] = useState('all')
+  const [ maxId, setMaxId ] = useState(20)
 
-  const onToggleDone = (id) => {
+  const createTodoTask = label => {
+    setMaxId(prevId => prevId + 1)
+    return {
+      id: maxId,
+      label,
+      done: false
+    }
+  }
+
+  const onToggleDone = id => {
     const idx = todoTasks.findIndex((el) => el.id === id)
     const oldTask = todoTasks[idx]
     const newTask = { ...oldTask, ['done']: !oldTask['done'] }
@@ -32,13 +42,20 @@ const App = () => {
       default:
         return tasks;
     }
-  };
+  }
 
-  const onFilterChange = (filter) => {
+  const onFilterChange = filter => {
     setFilter(filter)
   }
 
+  const addTask = label => {
+    const newItem = createTodoTask(label)
+    const newArray = [...todoTasks, newItem]
+    setTodoTasks(newArray)
+  }
+
   const visibleTasks = filterTasks(todoTasks, filter)
+  console.log(todoTasks)
 
   return (
     <div className="App">
@@ -49,9 +66,9 @@ const App = () => {
       />
       <TaskList 
         tasks={ visibleTasks } 
-        onToggleDone={onToggleDone}
+        onToggleDone={ onToggleDone }
       />
-      <TaskAddForm />
+      <TaskAddForm onTaskAdded={ addTask } />
     </div>
   );
 }
