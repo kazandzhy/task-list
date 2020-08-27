@@ -59,7 +59,8 @@ const App = () => {
 
   const editTask = (label, id) => {
     const newTodoTasks = [...todoTasks]
-    newTodoTasks[id - 1] = {...todoTasks[id - 1], label: label }
+    const idx = newTodoTasks.findIndex((el) => el.id === id)
+    newTodoTasks[idx] = {...todoTasks[idx], label: label }
     setTodoTasks(newTodoTasks)
   }
 
