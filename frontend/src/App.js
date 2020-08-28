@@ -83,7 +83,7 @@ const App = () => {
     })
   }
 
-  const editTask = (label, id) => {
+  const updateTask = (label, id) => {
 
     let data = {
       label: label
@@ -127,7 +127,7 @@ const App = () => {
         tasks={ visibleTasks } 
         onToggleDone={ onToggleDone }
         onDeleted={ deleteTask }
-        onEdit={ editTask }
+        onUpdate={ updateTask }
       />
       <TaskAddForm onTaskAdded={ addTask } />
     </div>

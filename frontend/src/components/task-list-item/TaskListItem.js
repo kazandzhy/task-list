@@ -3,11 +3,11 @@ import { uncompletedIcon, completedIcon, deleteIcon } from '../../assets/icons'
 
 import "./TaskListItem.css"
 
-const TaskListItem = ({ label, done, onToggleDone, onDeleted, onEdit }) => {
+const TaskListItem = ({ label, done, onToggleDone, onDeleted, onUpdate }) => {
   const [ isEditable, setIsEditable ] = useState(false)
   const [ newLabel, setNewLabel ] = useState(label)
 
-  let classNames = "task-completion"
+  let classNames = "task-completion tooltip"
   if (done) {
     classNames += " done"
   }
@@ -18,8 +18,8 @@ const TaskListItem = ({ label, done, onToggleDone, onDeleted, onEdit }) => {
   }
 
   const onKeyPress = event => {
-    if(event.key === 'Enter'){
-      onEdit(newLabel)
+    if(event.key === 'Enter' && newLabel.trim() !== ''){
+      onUpdate(newLabel)
       setIsEditable(false)
     }
   }
@@ -40,6 +40,7 @@ const TaskListItem = ({ label, done, onToggleDone, onDeleted, onEdit }) => {
             onClick = { () => setIsEditable(true) }
           >
             { label }
+            <span className="tooltiptext">Click to edit, press 'Enter' to save</span>
           </span>
       }
       <div className='icons'>
