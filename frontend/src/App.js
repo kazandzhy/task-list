@@ -12,7 +12,7 @@ const App = () => {
 
   const [ todoTasks, setTodoTasks ] = useState([])
   const [ filter, setFilter ] = useState('all')
-  const [ maxId, setMaxId ] = useState(100)
+  const [ maxId, setMaxId ] = useState(0)
 
   useEffect(() => {
     getAllTasks()
@@ -21,6 +21,9 @@ const App = () => {
   const getAllTasks = () => {
     TaskListDataService.getAll()
     .then(response => {
+      if (response.data.length) {
+        setMaxId(Number(response.data[response.data.length - 1].id) + 1)
+      }  
       setTodoTasks(response.data)
     })
     .catch(e => {
